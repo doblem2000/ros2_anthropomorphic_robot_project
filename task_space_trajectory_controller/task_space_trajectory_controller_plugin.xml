@@ -1,0 +1,11 @@
+<library path="task_space_trajectory_controller">
+
+  <class name="task_space_trajectory_controller/TaskSpaceTrajectoryController"
+         type="task_space_trajectory_controller::TaskSpaceTrajectoryController"
+         base_class_type="controller_interface::ControllerInterface">
+    <description>
+      Task Space Trajectory controller.
+    </description>
+  </class>
+
+</library>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>task_space_trajectory_controller</name>
+  <version>0.0.1</version>
+  <description>The task space trajectory controller package</description>
+  <maintainer email = "a.langella31@studenti.unisa.it">Antonio Langella</maintainer>
+  <maintainer email = "m.marsico10@studenti.unisa.it">Michele Marsico</maintainer>
+  <maintainer email = "s.paolino6@studenti.unisa.it">Salvatore Paolino</maintainer>
+  <maintainer email = "a.zito32@studenti.unisa.it">Adamo Zito</maintainer>
+  <license>BSD</license>
+  <author email = "a.langella31@studenti.unisa.it">Antonio Langella</author>
+  <author email = "m.marsico10@studenti.unisa.it">Michele Marsico</author>
+  <author email = "s.paolino6@studenti.unisa.it">Salvatore Paolino</author>
+  <author email = "a.zito32@studenti.unisa.it">Adamo Zito</author>
+  
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>controller_interface</exec_depend>
+  <exec_depend>hardware_interface</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>cartesian_control_msgs</exec_depend>
+  <exec_depend>realtime_tools</exec_depend>
+
+  <build_depend>rclcpp</build_depend>
+  <build_depend>controller_interface</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>cartesian_control_msgs</build_depend>
+  <build_depend>realtime_tools</build_depend>
+
+  <depend>generate_parameter_library</depend>
+  <depend>interactive_markers</depend>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+    <controller_interface plugin="${prefix}/task_space_trajectory_controller_plugin.xml"/>
+  </export>
+</package>

@@ -1,0 +1,55 @@
+ouroboros_parameters:
+  draw_base_frame: {
+    type: string,
+    description: "The frame wrt which the path is drawn.",
+    validation: {
+      not_empty<>: []
+    }
+  }
+  export_base_frame: {
+    type: string,
+    description: "The frame wrt which the path is exported.",
+    validation: {
+      not_empty<>: []
+    }
+  }
+  marker_topic: {
+    type: string,
+    default_value: "visualization_marker",
+    description: "The topic on which to publish the markers.",
+    validation: {
+      not_empty<>: []
+    }
+  }
+  path_publish_rate: {
+    type: int,
+    default_value: 10,
+    description: "The rate at which to publish the path.",
+    validation: {
+      gt<>: [0]
+    }
+  }
+  tf_publish_rate: {
+    type: int,
+    default_value: 20,
+    description: "The rate at which to publish the tf.",
+    validation: {
+      gt<>: [0]
+    }
+  }
+  n_samples_draw: {
+    type: int,
+    default_value: 100,
+    description: "The number of samples to draw.",
+    validation: {
+      gt<>: [0]
+    }
+  }
+  n_samples_export: {
+    type: int,
+    default_value: 300,
+    description: "The number of samples to export.",
+    validation: {
+      gt<>: [0]
+    }
+  }

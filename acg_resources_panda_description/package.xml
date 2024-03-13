@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>acg_resources_panda_description</name>
+  <version>2.0.6</version>
+  <description>Panda description used by the Automatic Control Group at the University of Salerno</description>
+
+  <author email="eferrentino@unisa.it">Enrico Ferrentino</author>
+
+  <maintainer email="eferrentino@unisa.it">Enrico Ferrentino</maintainer>
+
+  <license>BSD</license>
+  <url type="repository">https://bitbucket.org/unisa-acg/unisa_acg_ros2</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+
+  <export>
+      <build_type>ament_cmake</build_type>
+  </export>
+</package>

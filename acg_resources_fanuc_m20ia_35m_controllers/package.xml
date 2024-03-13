@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>acg_resources_fanuc_m20ia_35m_controllers</name>
+  <version>0.0.0</version>
+
+  <description>
+      This package contains some ros2 control controllers for the Fanuc M20-ia 35M. 
+  </description>
+
+  <author email = "a.langella31@studenti.unisa.it">Antonio Langella</author>
+  <author email = "m.marsico10@studenti.unisa.it">Michele Marsico</author>
+  <author email = "s.paolino6@studenti.unisa.it">Salvatore Paolino</author>
+  <author email = "a.zito32@studenti.unisa.it">Adamo Zito</author>
+ 
+  <maintainer email = "a.langella31@studenti.unisa.it">Antonio Langella</maintainer>
+  <maintainer email = "m.marsico10@studenti.unisa.it">Michele Marsico</maintainer>
+  <maintainer email = "s.paolino6@studenti.unisa.it">Salvatore Paolino</maintainer>
+  <maintainer email = "a.zito32@studenti.unisa.it">Adamo Zito</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!--External dependencies-->
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>ros_ign_gazebo</exec_depend>
+  <exec_depend>joint_trajectory_controller</exec_depend>
+  <exec_depend>ign_ros2_control</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  
+  <!--Internal dependencies-->
+  <exec_depend>acg_resources_fanuc_m20ia_35m_description</exec_depend>
+  <exec_depend>acg_resources_fanuc_m20ia_35m_moveit_config</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

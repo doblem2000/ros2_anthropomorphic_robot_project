@@ -1,0 +1,263 @@
+<?xml version="1.0" ?>
+<robot name="fanuc_m20ia_35m">
+    <!--World link represents the world origin-->
+    <link name="world" />
+    <!--Sliding base-->
+    <link name="slider">
+        <visual>
+            <origin xyz="0 -0.138929 -0.156011" rpy="3.14159265359 -1.57079632679 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/slide.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="5.44696" ixy="0.41618" ixz="0.42316" iyy="4.52204" iyz="1.14567" izz="3.50858"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.38559 -0.12582 -0.14714"/>
+            <mass value="40.00000"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 -0.138929 -0.156011" rpy="3.14159265359 -1.57079632679 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/slide_alt.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fanuc_m20ia_35m_world_to_silder" type="prismatic">
+        <origin xyz="0 0 0" rpy="3.14159265359 -1.57079632679 0" />
+        <parent link="world" />
+        <child link="slider" />
+        <axis xyz="0 0 1" />
+        <dynamics damping="12.6" friction="1.8"/>
+        <limit effort="3500" velocity="9.6" lower="-2.1" upper="2.1" /><axis xyz="0 0 1" /> 
+    </joint>
+    <joint name="fanuc_m20ia_35m_slider_to_link_0" type="fixed">
+        <origin xyz="0.555985 0 0" rpy="3.14159265359 -1.57079632679 0" />
+        <parent link="slider" />
+        <child link="fanuc_m20ia_35m_link_0" />
+    </joint>
+    <!--Fanuc M20IA/35M-->
+    <link name="fanuc_m20ia_35m_link_0">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/link_0.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="0.81917" ixy="0.11076" ixz="-0.15612" iyy="1.46533" iyz="0.02762" izz="1.37957"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="-0.01251 0.00295 0.13601"/>
+            <mass value="55.00000"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/link_0.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="fanuc_m20ia_35m_link_1">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/link_1.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="1.94274" ixy="-0.00021" ixz="-0.20819" iyy="1.01606" iyz="-0.20086" izz="2.07922"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.05707 0.00452 0.44717"/>
+            <mass value="76.00000"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/link_1.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fanuc_m20ia_35m_joint_1" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="fanuc_m20ia_35m_link_0" />
+        <child link="fanuc_m20ia_35m_link_1" />
+        <axis xyz="0 0 1" />
+        <dynamics damping="7.11" friction="1.2"/>
+        <limit effort="2500" velocity="3.14" lower="-3.228859" upper="3.228859" />
+    </joint>
+    <link name="fanuc_m20ia_35m_link_2">
+        <visual>
+            <origin xyz="-0.150 -0.525 0" rpy="-1.57079632679 0 0" />
+            <geometry> <!--- -0.150 0 -0.525    x=-1.57079632679-->
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/link_2.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="2.43002" ixy="0.00148" ixz="0.00311" iyy="0.13838" iyz="-0.02449" izz="2.42037"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00001 0.33455 0.17707"/>
+            <mass value="31.90000"/>
+        </inertial>
+        <collision>
+            <origin xyz="-0.150 -0.525 0" rpy="-1.57079632679 0 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/link_2.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fanuc_m20ia_35m_joint_2" type="revolute">
+        <origin xyz="0.150 0 0.525" rpy="1.57079632679 0 0" />
+        <parent link="fanuc_m20ia_35m_link_1" />
+        <child link="fanuc_m20ia_35m_link_2" />
+        <axis xyz="0 0 -1" />
+        <dynamics damping="7.11" friction="1.2"/>
+        <limit effort="2500" velocity="3.14" lower="-1.745329" upper="2.792527" />
+    </joint>
+    <link name="fanuc_m20ia_35m_link_3">
+        <visual>
+            <origin xyz="-1.315 0.150 0" rpy="-1.57079632679 0 -1.57079632679" /> <!-- 1.57079632679 -1.57079632679 -->
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/link_3.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="0.97807" ixy="0.09333" ixz="0.00172" iyy="1.00014" iyz="0.17372" izz="0.82790"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.05077 -0.05726 -0.02988"/>
+            <mass value="52.00000"/>
+        </inertial>
+        <collision>
+            <origin xyz="-1.315 0.150 0" rpy="-1.57079632679 0 -1.57079632679" /> 
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/link_3.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fanuc_m20ia_35m_joint_3" type="revolute">
+        <origin xyz="0 0.790 0" rpy="0 0 1.57079632679" />
+        <parent link="fanuc_m20ia_35m_link_2" />
+        <child link="fanuc_m20ia_35m_link_3" />
+        <axis xyz="0 0 1" />
+        <dynamics damping="4.778" friction="0.8"/>
+        <limit effort="2000" velocity="3.49" lower="-3.228859" upper="4.766494" />
+    </joint>
+    <link name="fanuc_m20ia_35m_link_4">
+        <visual>
+            <origin xyz="-1.456 0 -0.150" rpy="3.14159265359 -1.57079632679 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/link_4.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="1.14714" ixy="0.00333" ixz="0.01779" iyy="1.11650" iyz="-0.07292" izz="0.08602"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00918 0.00056 0.55457"/>
+            <mass value="27.40000"/>
+        </inertial>
+        <collision>
+            <origin xyz="-1.456 0 -0.150" rpy="3.14159265359 -1.57079632679 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/link_4.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fanuc_m20ia_35m_joint_4" type="revolute">
+        <origin xyz="0.150 0 0" rpy="1.57079632679 0 0" />
+        <parent link="fanuc_m20ia_35m_link_3" />
+        <child link="fanuc_m20ia_35m_link_4" />
+        <axis xyz="0 0 -1" />
+        <dynamics damping="2.6696" friction="0.8"/>
+        <limit effort="110" velocity="6.11" lower="-3.490659" upper="3.490659" />
+    </joint>
+    <link name="fanuc_m20ia_35m_link_5">
+        <visual>
+            <origin xyz="-1.465 1.010 0" rpy="-1.57079632679 0 -1.57079632679" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/link_5.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="0.05943" ixy="0.00359" ixz="-0.00004" iyy="0.01101" iyz="0.00036" izz="0.06008"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00391 -0.00260 -0.00199"/>
+            <mass value="9.40000"/>
+        </inertial>
+        <collision>
+            <origin xyz="-1.465 1.010 0" rpy="-1.57079632679 0 -1.57079632679" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/link_5.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fanuc_m20ia_35m_joint_5" type="revolute">
+        <origin xyz="0 0 0.860" rpy="-1.57079632679 0 0" />
+        <parent link="fanuc_m20ia_35m_link_4" />
+        <child link="fanuc_m20ia_35m_link_5" />
+        <dynamics damping="0.53169" friction="0.3"/>
+        <axis xyz="0 0 1" />
+        <limit effort="110" velocity="6.11" lower="-2.443461" upper="2.443461" />
+    </joint>
+    <link name="fanuc_m20ia_35m_link_6">
+        <visual>
+            <origin xyz="0 0 0.100" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/link_6.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="0.00005" ixy="-0.00000" ixz="-0.00000" iyy="0.00005" iyz="0.00000" izz="0.00009"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.10000"/>
+            <mass value="0.30000"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0.100" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/link_6.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fanuc_m20ia_35m_joint_6" type="revolute">
+        <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
+        <parent link="fanuc_m20ia_35m_link_5" />
+        <child link="fanuc_m20ia_35m_link_6" />
+        <axis xyz="0 0 -1" />
+        <dynamics damping="0.53169" friction="0.3"/>
+        <limit effort="60" velocity="6.98" lower="-7.853982" upper="7.853982" />
+    </joint>
+    <link name="fanuc_m20ia_35m_flange">
+    </link>
+    <joint name="fanuc_m20ia_35m_joint_7" type="fixed">
+        <origin xyz="0 0 0.100" rpy="0 0 0" />
+        <parent link="fanuc_m20ia_35m_link_6" />
+        <child link="fanuc_m20ia_35m_flange" />
+    </joint>
+    <!--End effector-->
+    <link name="fanuc_m20ia_35m_drilling_tool">
+        <visual>
+            <origin xyz="-1.26508 -0.01635 -1.447666" rpy="-1.5446 0 -1.5429" /> 
+            <!--The mesh is not aligned with its frame. This rotation was calculated by means of rotation matrices.-->
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/visual/drilling_tool.dae" />
+            </geometry>
+        </visual>
+        <inertial>
+            <inertia ixx="0.27100" ixy="0.01440" ixz="-0.01671" iyy="0.28542" iyz="-0.04531" izz="0.10477"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.06258 0.01824 -0.25703"/>
+            <mass value="15.00000"/>
+        </inertial>
+        <collision>
+            <origin xyz="-1.26508 -0.01635 -1.447666" rpy="-1.5446 0 -1.5429" />
+            <!--The mesh is not aligned with its frame. This rotation was calculated by means of rotation matrices.-->
+            <geometry>
+                <mesh filename="package://acg_resources_fanuc_m20ia_35m_description/meshes/collision/drilling_tool_alt.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="fanuc_m20ia_35m_inspection_tool">
+        <!--The mesh of this tool is already part of the drilling tool mesh
+        the inertial tag is has been inserted on the drilling_tool-->
+    </link>
+    <joint name="fanuc_m20ia_35m_flange_to_drilling_tool" type="fixed">
+        <origin xyz="-0.18992 0 0.29979" rpy="0 0 0" />
+        <parent link="fanuc_m20ia_35m_flange" />
+        <child link="fanuc_m20ia_35m_drilling_tool" />
+    </joint>
+    <joint name="fanuc_m20ia_35m_flange_to_inspection_tool" type="fixed">
+        <origin xyz="-0.19047 0.1145 0.26656" rpy="0 0 0" />
+        <parent link="fanuc_m20ia_35m_flange" />
+        <child link="fanuc_m20ia_35m_inspection_tool" />
+    </joint>
+</robot>

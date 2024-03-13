@@ -1,0 +1,10 @@
+# Default initial velocities for fanuc_m20ia_35m's ros2_control fake system
+
+initial_velocities:
+  fanuc_m20ia_35m_joint_1: 0.0
+  fanuc_m20ia_35m_joint_2: 0.0
+  fanuc_m20ia_35m_joint_3: 0.0
+  fanuc_m20ia_35m_joint_4: 0.0
+  fanuc_m20ia_35m_joint_5: 0.0
+  fanuc_m20ia_35m_joint_6: 0.0
+  fanuc_m20ia_35m_world_to_silder: 0.0

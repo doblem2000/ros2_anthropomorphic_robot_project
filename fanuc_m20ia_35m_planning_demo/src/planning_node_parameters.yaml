@@ -1,0 +1,123 @@
+# this->declare_parameter<std::string>("input_bag_file_topic", "cartesian_path");
+#     RCLCPP_INFO(this->get_logger(), "input_bag_file_topic value: %s", this->get_parameter("input_bag_file_topic").as_string().c_str());
+
+#     this->declare_parameter<std::string>("planning_group", "fanuc_m20ia_35m_slider_to_drilling_tool");
+#     RCLCPP_INFO(this->get_logger(), "planning_group value: %s", this->get_parameter("planning_group").as_string().c_str());   
+
+#     this->declare_parameter<std::string>("recorded_trajectory_home_pose_topic", "/home_trajectory_feedback");
+#     RCLCPP_INFO(this->get_logger(), "recorded_trajectory_home_pose_topic value: %s", this->get_parameter("recorded_trajectory_home_pose_topic").as_string().c_str());
+
+#     this->declare_parameter<std::string>("recorded_trajectory_point2point_topic", "/point2point_feedback");
+#     RCLCPP_INFO(this->get_logger(), "recorded_trajectory_point2point_topic value: %s", this->get_parameter("recorded_trajectory_point2point_topic").as_string().c_str());
+
+#     this->declare_parameter<std::string>("recorded_trajectory_cartesian_topic", "/fanuc_m20ia_cartesian_feedback");
+#     RCLCPP_INFO(this->get_logger(), "recorded_trajectory_cartesian_topic value: %s", this->get_parameter("recorded_trajectory_cartesian_topic").as_string().c_str());
+
+#     this->declare_parameter<std::int32_t>("feedback_sampling_period", 1);
+#     RCLCPP_INFO(this->get_logger(), "feedback_sampling_period value: %ld", this->get_parameter("feedback_sampling_period").as_int());
+
+#     this->declare_parameter<std::double_t>("max_velocity_scaling_factor", 0.5);
+#     RCLCPP_INFO(this->get_logger(), "max_velocity_scaling_factor value: %f", this->get_parameter("max_velocity_scaling_factor").as_double());
+
+#     this->declare_parameter<std::string>("recorded_trajectory_file_name", "executed_trajectory");
+#     RCLCPP_INFO(this->get_logger(), "recorded_trajectory_file_name value: %s", this->get_parameter("recorded_trajectory_file_name").as_string().c_str());
+
+#     this->declare_parameter<std::double_t>("goal_position_tolerance", 0.000100);
+#     RCLCPP_INFO(this->get_logger(), "goal_position_tolerance value: %f", this->get_parameter("goal_position_tolerance").as_double());
+
+#     this->declare_parameter<std::double_t>("goal_orientation_tolerance", 0.00100);
+#     RCLCPP_INFO(this->get_logger(), "goal_orientation_tolerance value: %f", this->get_parameter("goal_orientation_tolerance").as_double());
+
+#     this->declare_parameter<std::double_t>("goal_joint_tolerance", 0.000100);
+#     RCLCPP_INFO(this->get_logger(), "goal_joint_tolerance value: %f", this->get_parameter("goal_joint_tolerance").as_double());
+
+#     this->declare_parameter<std::string>("controller_name");
+#     this->declare_parameter<std::string>("controller_type");
+
+planning_node:
+  input_bag_file_topic: {
+    type: string,
+    default_value: "cartesian_path",
+    description: "Input bag file topic",
+  }
+  planning_group: {
+    type: string,
+    default_value: "fanuc_m20ia_35m_slider_to_drilling_tool",
+    description: "Planning group",
+  }
+  recorded_trajectory_home_pose_topic: {
+    type: string,
+    default_value: "/home_trajectory_feedback",
+    description: "Recorded trajectory home pose topic",
+  }
+  recorded_trajectory_point2point_topic: {
+    type: string,
+    default_value: "/point2point_feedback",
+    description: "Recorded trajectory point2point topic",
+  }
+  recorded_trajectory_cartesian_topic: {
+    type: string,
+    default_value: "/fanuc_m20ia_cartesian_feedback",
+    description: "Recorded trajectory cartesian topic",
+  }
+  feedback_sampling_period: {
+    type: int,
+    default_value: 1,
+    description: "Feedback sampling period",
+  }
+  max_velocity_scaling_factor: {
+    type: double,
+    default_value: 0.5,
+    description: "Max velocity scaling factor",
+  }
+  recorded_trajectory_file_name: {
+    type: string,
+    default_value: "executed_trajectory",
+    description: "Recorded trajectory file name",
+  }
+  goal_position_tolerance: {
+    type: double,
+    default_value: 0.000100,
+    description: "Goal position tolerance",
+  }
+  goal_orientation_tolerance: {
+    type: double,
+    default_value: 0.00100,
+    description: "Goal orientation tolerance",
+  }
+  goal_joint_tolerance: {
+    type: double,
+    default_value: 0.000100,
+    description: "Goal joint tolerance",
+  }
+  controller_name: {
+    type: string,
+    description: "Controller name",
+  }
+  base_frame: {
+    type: string,
+    default_value: "world",
+    description: "Base frame",
+  }
+  named_targets: 
+    home_pose: {
+      type: string,
+      default_value: "home",
+      description: "robot's home pose"
+    }
+
+    home_pose_inverse: {
+      type: string,
+      default_value: "home_inverse",
+      description: "inverse robot's home pose",
+    }
+  
+  controller_type: {
+    type: string,
+    description: "Controller type",
+    validation: {
+      one_of<>: [["TaskSpaceTrajectoryController", "JointTrajectoryController"]]
+    }
+  
+}
+

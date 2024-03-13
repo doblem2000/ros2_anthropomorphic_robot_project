@@ -1,0 +1,7 @@
+traj1: executed_trajectory_2024-02-13_16-40-29
+traj2: executed_trajectory_2024-02-13_16-47-26
+traj3: executed_trajectory_2024-02-13_16-52-18
+traj4: executed_trajectory_2024-02-13_16-53-21
+traj5: executed_trajectory_2024-02-13_16-57-39
+traj6: executed_trajectory_2024-02-13_17-03-45
+traj7: executed_trajectory_2024-02-13_17-32-28

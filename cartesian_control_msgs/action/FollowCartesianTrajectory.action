@@ -1,0 +1,15 @@
+moveit_msgs/CartesianTrajectory trajectory
+---
+int32 error_code
+int32 SUCCESS = 0
+int32 INVALID_GOAL = -1
+int32 REQUESTED_CANCEL = -2
+int32 OLD_HEADER_TIMESTAMP = -3
+int32 INVALID_POSTURE = -6
+string error_string
+---
+std_msgs/Header header
+string controlled_frame
+moveit_msgs/CartesianTrajectoryPoint desired
+moveit_msgs/CartesianTrajectoryPoint actual
+moveit_msgs/CartesianTrajectoryPoint error

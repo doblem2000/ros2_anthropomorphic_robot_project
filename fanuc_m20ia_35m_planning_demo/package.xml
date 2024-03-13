@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>fanuc_m20ia_35m_planning_demo</name>
+  <version>0.0.0</version>
+  <description>Application package containing planning functions applied to the Fanuc m20ia 35m robot</description>
+  <author email = "a.langella31@studenti.unisa.it">Antonio Langella</author>
+  <author email = "m.marsico10@studenti.unisa.it">Michele Marsico</author>
+  <author email = "s.paolino6@studenti.unisa.it">Salvatore Paolino</author>
+  <author email = "a.zito32@studenti.unisa.it">Adamo Zito</author>
+ 
+  <maintainer email="a.langella31@studenti.unisa.it">Antonio Langella</maintainer>
+  <maintainer email = "m.marsico10@studenti.unisa.it">Michele Marsico</maintainer>
+  <maintainer email = "s.paolino6@studenti.unisa.it">Salvatore Paolino</maintainer>
+  <maintainer email="a.zito32@studenti.unisa.it">Adamo Zito</maintainer>
+  <license>BSD</license>
+
+  <url type="bugtracker">https://bitbucket.org/unisa-acg/unisa_acg_ros2/issues</url>
+  <url type="repository">https://bitbucket.org/unisa-acg/unisa_acg_ros2</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_visual_tools</depend>
+  <depend>rosbag2_cpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>moveit_msgs</depend>
+  <depend>tf2_eigen</depend>
+  <depend>eigen3</depend>
+  <depend>cartesian_control_msgs</depend>
+
+
+  <exec_depend>acg_resources_fanuc_m20ia_35m_moveit_config</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,18 @@
+ouroboros:
+  ros__parameters:
+    draw_base_frame: "panda_link0"
+    export_base_frame: "panda_link0"
+    marker_topic: "visualization_marker"
+    path_publish_rate: 10
+    tf_publish_rate: 20
+    n_samples_draw: 100
+    n_samples_export: 300
+
+launchfiles:
+  ros__parameters:
+    robot_description_package: 
+      package_name: "acg_resources_panda_description"
+      launchfile_name: "display.launch.py"  
+    moveit_config_package: 
+      package_name: "acg_panda_moveit_config"
+      launchfile_name: "demo.launch.py"  

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fanuc_m20ia_35m">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+    <xacro:arg name="initial_velocities_file" default="initial_velocities.yaml" />
+    <xacro:arg name="initial_efforts_file" default="initial_efforts.yaml" />
+    <xacro:arg name="command_interface" default="position" />
+    <xacro:arg name="use_mock_hardware" default="true" />
+    <xacro:arg name="ros2_controllers_path" default="$(find acg_resources_fanuc_m20ia_35m_moveit_config)/config/ros2_controllers.yaml" />
+
+    <!-- Import fanuc_m20ia_35m urdf file -->
+    <xacro:include filename="$(find acg_resources_fanuc_m20ia_35m_description)/urdf/fanuc_m20ia_35m.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="$(find acg_resources_fanuc_m20ia_35m_moveit_config)/config/fanuc_m20ia_35m.ros2_control.xacro" />
+
+
+    <xacro:fanuc_m20ia_35m_ros2_control 
+        name="FakeSystem" 
+        initial_positions_file="$(arg initial_positions_file)"
+        initial_velocities_file="$(arg initial_velocities_file)"
+        initial_efforts_file="$(arg initial_efforts_file)"
+        command_interface="$(arg command_interface)"
+        use_mock_hardware="$(arg use_mock_hardware)"
+        ros2_controllers_path="$(arg ros2_controllers_path)"/>
+
+</robot>

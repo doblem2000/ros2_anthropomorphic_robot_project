@@ -1,0 +1,118 @@
+task_space_trajectory_controller:
+  robot_description: {
+    type: string,
+    default_value: "robot_description",
+    description: "robot_description topic",
+  }
+  robot_base_link: {
+    type: string,
+    description: "Robot base link",
+  }
+  end_effector_link: {
+    type: string,
+    description: "End effector link",
+  }
+  joint_model_group_name: {
+    type: string,
+    description: "Joint model group name",
+  }
+  debug: {
+    type: bool,
+    default_value: false,
+    description: "Debug mode",
+  }
+  gains:
+    position:
+      x: {
+        type: double,
+        default_value: 5.0,
+        description: "Gain for x position",
+      }
+      y: {
+        type: double,
+        default_value: 5.0,
+        description: "Gain for y position",
+      }
+      z: {
+        type: double,
+        default_value: 5.0,
+        description: "Gain for z position",
+      }
+    orientation:
+      x: {
+        type: double,
+        default_value: 0.5,
+        description: "Gain for x orientation",
+      }
+      y: {
+        type: double,
+        default_value: 0.5,
+        description: "Gain for y orientation",
+      }
+      z: {
+        type: double,
+        default_value: 0.5,
+        description: "Gain for z orientation",
+      }
+    velocity:
+      linear:
+        x: {
+          type: double,
+          default_value: 1.0,
+          description: "Gain for x linear velocity",
+        }
+        y: {
+          type: double,
+          default_value: 1.0,
+          description: "Gain for y linear velocity",
+        }
+        z: {
+          type: double,
+          default_value: 1.0,
+          description: "Gain for z linear velocity",
+        }
+      angular:
+        x: {
+          type: double,
+          default_value: 1.0,
+          description: "Gain for x angular velocity",
+        }
+        y: {
+          type: double,
+          default_value: 1.0,
+          description: "Gain for y angular velocity",
+        }
+        z: {
+          type: double,
+          default_value: 1.0,
+          description: "Gain for z angular velocity",
+        }
+    k0: {
+      type: double,
+      default_value: 1.0,
+      description: "Gain for nullspace",
+    }
+  action_server:
+    first_point_tolerance: {
+      type: double,
+      default_value: 0.01,
+      description: "The maximum allowed error between the first point of the trajectory and the current state of the robot",
+    }
+  use_nullspace: {
+    type: bool,
+    default_value: false,
+    description: "Use nullspace",
+  }
+  nullspace_objective: {
+    type: string,
+    default_value: "manipulability_measure",
+    description: "Nullspace optimization objective [manipulability_measure, joint_limits]",
+    validation: {
+      one_of<>: [["manipulability_measure", "joint_limits"]],
+    }
+  }
+  orientation_error_axis_angle: {
+    type: bool,
+    default_value: true,
+    description: "Use axis-angle error for orientation",
+  }

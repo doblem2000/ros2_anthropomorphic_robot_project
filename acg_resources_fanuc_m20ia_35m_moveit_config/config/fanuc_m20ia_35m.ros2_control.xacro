@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="fanuc_m20ia_35m_ros2_control" params="name initial_positions_file initial_velocities_file initial_efforts_file command_interface use_mock_hardware ros2_controllers_path">
+        <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+        <xacro:property name="initial_velocities" value="${xacro.load_yaml(initial_velocities_file)['initial_velocities']}"/>
+        <xacro:property name="initial_efforts" value="${xacro.load_yaml(initial_efforts_file)['initial_efforts']}"/>
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <xacro:if value="${use_mock_hardware}">
+                    <!-- By default, set up controllers for simulation. This won't work on real hardware -->
+                    <plugin>mock_components/GenericSystem</plugin>
+                </xacro:if>
+                <xacro:unless value="${use_mock_hardware}">
+                    <plugin>ign_ros2_control/IgnitionSystem</plugin>
+                </xacro:unless>
+            </hardware>
+            <joint name="fanuc_m20ia_35m_world_to_silder">
+                <command_interface name="${command_interface}"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['fanuc_m20ia_35m_world_to_silder']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">${initial_velocities['fanuc_m20ia_35m_world_to_silder']}</param>
+                </state_interface>
+                <state_interface name="effort">
+                  <param name="initial_value">${initial_efforts['fanuc_m20ia_35m_world_to_silder']}</param>
+                </state_interface>
+            </joint>
+            <joint name="fanuc_m20ia_35m_joint_1">
+                <command_interface name="${command_interface}"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['fanuc_m20ia_35m_joint_1']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">${initial_velocities['fanuc_m20ia_35m_joint_1']}</param>
+                </state_interface>
+                <state_interface name="effort">
+                  <param name="initial_value">${initial_efforts['fanuc_m20ia_35m_joint_1']}</param>
+                </state_interface>
+            </joint>
+            <joint name="fanuc_m20ia_35m_joint_2">
+                <command_interface name="${command_interface}"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['fanuc_m20ia_35m_joint_2']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">${initial_velocities['fanuc_m20ia_35m_joint_2']}</param>
+                </state_interface>
+                <state_interface name="effort">
+                  <param name="initial_value">${initial_efforts['fanuc_m20ia_35m_joint_2']}</param>
+                </state_interface>
+            </joint>
+            <joint name="fanuc_m20ia_35m_joint_3">
+                <command_interface name="${command_interface}"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['fanuc_m20ia_35m_joint_3']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">${initial_velocities['fanuc_m20ia_35m_joint_3']}</param>
+                </state_interface>
+                <state_interface name="effort">
+                  <param name="initial_value">${initial_efforts['fanuc_m20ia_35m_joint_3']}</param>
+                </state_interface>
+            </joint>
+            <joint name="fanuc_m20ia_35m_joint_4">
+                <command_interface name="${command_interface}"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['fanuc_m20ia_35m_joint_4']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">${initial_velocities['fanuc_m20ia_35m_joint_4']}</param>
+                </state_interface>
+                <state_interface name="effort">
+                  <param name="initial_value">${initial_efforts['fanuc_m20ia_35m_joint_4']}</param>
+                </state_interface>
+            </joint>
+            <joint name="fanuc_m20ia_35m_joint_5">
+                <command_interface name="${command_interface}"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['fanuc_m20ia_35m_joint_5']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">${initial_velocities['fanuc_m20ia_35m_joint_5']}</param>
+                </state_interface>
+                <state_interface name="effort">
+                  <param name="initial_value">${initial_efforts['fanuc_m20ia_35m_joint_5']}</param>
+                </state_interface>
+            </joint>
+            <joint name="fanuc_m20ia_35m_joint_6">
+                <command_interface name="${command_interface}"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['fanuc_m20ia_35m_joint_6']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">${initial_velocities['fanuc_m20ia_35m_joint_6']}</param>
+                </state_interface>
+                <state_interface name="effort">
+                  <param name="initial_value">${initial_efforts['fanuc_m20ia_35m_joint_6']}</param>
+                </state_interface>
+            </joint>
+
+        </ros2_control>
+
+        <xacro:unless value="${use_mock_hardware}">
+            <gazebo>
+                <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+                    <parameters>${ros2_controllers_path}</parameters>
+                </plugin>
+                <self_collide>true</self_collide>
+            </gazebo>
+        </xacro:unless>
+    </xacro:macro>
+</robot>

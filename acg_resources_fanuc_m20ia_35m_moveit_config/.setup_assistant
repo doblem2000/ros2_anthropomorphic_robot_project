@@ -1,0 +1,27 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: acg_resources_fanuc_m20ia_35m_description
+    relative_path: urdf/fanuc_m20ia_35m.urdf
+  srdf:
+    relative_path: config/fanuc_m20ia_35m.srdf
+  package_settings:
+    author_name: Antonio Langella
+    author_email: a.langella31@studenti.unisa.it
+    generated_timestamp: 1701382775
+  control_xacro:
+    command:
+      - position
+      - effort
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+      - effort
+    state:
+      - position
+      - velocity

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>task_space_path_generator</name>
+  <version>0.0.0</version>
+  <description>A robot-agnostic module for task space path generation</description>
+  <maintainer email="a.langella31@studenti.unisa.it">Antonio Langella</maintainer>
+  <license>BSD</license>
+
+  <build_depend>ouroboros_msgs</build_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <exec_depend>python_qt_binding</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>python-transforms3d-pip</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-scipy</exec_depend>
+  
+  <depend>generate_parameter_library</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

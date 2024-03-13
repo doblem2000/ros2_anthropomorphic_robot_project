@@ -1,0 +1,37 @@
+planning_plugin: ompl_interface/OMPLPlanner
+start_state_max_bounds_error: 0.1
+jiggle_fraction: 0.1
+request_adapters: >-
+    default_planner_request_adapters/AddTimeOptimalParameterization
+    default_planner_request_adapters/ResolveConstraintFrames
+    default_planner_request_adapters/FixWorkspaceBounds
+    default_planner_request_adapters/FixStartStateBounds
+    default_planner_request_adapters/FixStartStateCollision
+    default_planner_request_adapters/FixStartStatePathConstraints
+
+BiTRRT:
+  type: geometric::BiTRRT
+  range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
+  temp_change_factor: 0.1  # how much to increase or decrease temp. default: 0.1
+  init_temperature: 100  # initial temperature. default: 100
+  frountier_threshold: 0.0  # dist new state to nearest neighbor to disqualify as frontier. default: 0.0 set in setup()
+  frountier_node_ratio: 0.1  # 1/10, or 1 nonfrontier for every 10 frontier. default: 0.1
+  cost_threshold: 1e300  # the cost threshold. Any motion cost that is not better will not be expanded. default: inf
+  termination_condition: CostConvergence[30,.000000000000000000001]
+  optimization_objective: PathLengthOptimizationObjective
+
+fanuc_m20ia_35m_slider_to_drilling_tool:
+  default_planner_config: BiTRRT
+  enforce_joint_model_state_space: false
+
+fanuc_m20ia_35m_base_to_drilling_tool:
+  default_planner_config: BiTRRT
+  enforce_joint_model_state_space: false
+
+fanuc_m20ia_35m_slider_to_inspection_tool:
+  default_planner_config: BiTRRT
+  enforce_joint_model_state_space: false
+
+fanuc_m20ia_35m_base_to_inspection_tool:
+  default_planner_config: BiTRRT
+  enforce_joint_model_state_space: false

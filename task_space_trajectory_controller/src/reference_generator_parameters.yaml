@@ -1,0 +1,16 @@
+reference_generator:
+  base_link: {
+    type: string,
+    default_value: "world",
+    description: "Robot base link",
+  }
+  end_effector_link: {
+    type: string,
+    default_value: "fanuc_m20ia_35m_drilling_tool_reference",
+    description: "End effector link",
+  }
+  command_topic: {
+    type: string,
+    default_value: "/fanuc_m20ia_35m_task_space_controller/command",
+    description: "Command topic",
+  }
